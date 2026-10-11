@@ -9,6 +9,8 @@ from odoo.addons.delivery_carrier_picking_valid.tests.common import Common
 
 
 class TestPickingValid(Common):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         res = super().setUpClass()
