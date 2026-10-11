@@ -5,6 +5,8 @@ from .common import Common
 
 
 class TestPickingValid(Common):
+    _test_user_groups = None
+
     def test_match_volume(self):
         picking = self.picking
         # volume of picking is 2
