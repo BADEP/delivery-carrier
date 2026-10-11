@@ -130,9 +130,11 @@ class StockPicking(models.Model):
 
     def _send_delivery_state_delivered_email(self):
         for item in self.filtered(
-            lambda p: p.company_id.delivery_state_delivered_email_validation
-            and p.picking_type_id.code == "outgoing"
-            and p.delivery_state == "customer_delivered"
+            lambda p: (
+                p.company_id.delivery_state_delivered_email_validation
+                and p.picking_type_id.code == "outgoing"
+                and p.delivery_state == "customer_delivered"
+            )
         ):
             source_ref = item.company_id.delivery_state_delivered_mail_template_id
             item.with_context(force_send=True).message_post_with_source(
