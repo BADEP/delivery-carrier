@@ -1,7 +1,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Delivery Carrier Account",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "author": "Akretion,Odoo Community Association (OCA)",
     "maintainer": "Akretion",
     "category": "Delivery",
@@ -12,8 +12,7 @@
     "data": [
         "views/carrier_account.xml",
         "views/delivery_carrier.xml",
-        "security/ir.model.access.csv",
-        "security/carrier_security.xml",
+        "security/ir.access.csv",
     ],
     "installable": True,
     "auto_install": False,

@@ -1,0 +1,4 @@
+id,name,model_id,group_id/id,operation,domain
+access_read_carrier_account_inventory_user,carrier.account.inventory.user,carrier.account,stock.group_stock_user,r,
+access_all_carrier_account_inventory_manager,carrier.account.inventory.manager,carrier.account,stock.group_stock_manager,crud,
+carrier_account_comp_rule,Carrier Account multi-company,carrier.account,,crud,"['|',('company_id','=',False),('company_id', 'in', company_ids)]"

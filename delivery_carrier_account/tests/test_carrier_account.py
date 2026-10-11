@@ -5,6 +5,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 @tagged("post_install", "-at_install")
 class TestCarrierAccount(BaseCommon):
+    _test_user_groups = None
+
     def test_get_carrier_account(self):
         """Test finding the correct account for a picking"""
         account = self.env["carrier.account"].create(
@@ -28,10 +30,10 @@ class TestCarrierAccount(BaseCommon):
         )
         carrier.write({"carrier_account_id": account.id})
         pick = self.env["stock.picking"].new(
-            dict(
-                carrier_id=carrier.id,
-                company_id=self.env.user.company_id.id,
-            )
+            {
+                "carrier_id": carrier.id,
+                "company_id": self.env.user.company_id.id,
+            }
         )
 
         picking_account = pick._get_carrier_account()
