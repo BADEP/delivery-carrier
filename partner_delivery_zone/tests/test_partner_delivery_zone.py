@@ -10,6 +10,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 @tagged("post_install", "-at_install")
 class TestPartnerDeliveryZone(BaseCommon):
+    _test_user_groups = None
+
     at_install = False
     post_install = True
 
