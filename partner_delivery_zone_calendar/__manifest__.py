@@ -3,9 +3,8 @@
 
 {
     "name": "Partner Delivery Zone Calendar",
-    "summary": """
-        This module allows to define a calendar on a delivery zone""",
-    "version": "19.0.1.0.0",
+    "summary": "This module allows to define a calendar on a delivery zone",
+    "version": "20.0.1.0.0",
     "license": "AGPL-3",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/delivery-carrier",
