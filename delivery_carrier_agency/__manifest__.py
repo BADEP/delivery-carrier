@@ -4,7 +4,7 @@
 {
     "name": "Delivery Carrier Agency",
     "summary": "Add a model for Carrier Agencies",
-    "version": "19.0.1.0.0",
+    "version": "20.0.1.0.0",
     "category": "Delivery",
     "website": "https://github.com/OCA/delivery-carrier",
     "author": "Akretion,Odoo Community Association (OCA)",
@@ -15,8 +15,8 @@
         "stock_delivery",
     ],
     "data": [
-        "security/ir.model.access.csv",
         "views/delivery_carrier_agency_view.xml",
+        "security/ir.access.csv",
     ],
     "demo": [],
     "qweb": [],

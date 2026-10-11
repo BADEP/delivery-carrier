@@ -5,6 +5,8 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestCarrierAgency(BaseCommon):
+    _test_user_groups = None
+
     def test_get_carrier_agency(self):
         """Test finding the correct account for a picking"""
         san_fransico_wh = self.env.ref("stock.warehouse0")
@@ -41,21 +43,21 @@ class TestCarrierAgency(BaseCommon):
             }
         )
         san_fransisco_picking = self.env["stock.picking"].new(
-            dict(
-                carrier_id=carrier.id,
-                company_id=self.env.user.company_id.id,
-                location_id=san_fransico_wh.lot_stock_id.id,
-            )
+            {
+                "carrier_id": carrier.id,
+                "company_id": self.env.user.company_id.id,
+                "location_id": san_fransico_wh.lot_stock_id.id,
+            }
         )
         agency = san_fransisco_picking._get_carrier_agency()
         self.assertEqual(agency, agency_san_fransisco)
 
         chicago_picking = self.env["stock.picking"].new(
-            dict(
-                carrier_id=carrier.id,
-                company_id=self.env.user.company_id.id,
-                location_id=chicago_wh.lot_stock_id.id,
-            )
+            {
+                "carrier_id": carrier.id,
+                "company_id": self.env.user.company_id.id,
+                "location_id": chicago_wh.lot_stock_id.id,
+            }
         )
         agency = chicago_picking._get_carrier_agency()
         self.assertEqual(agency, agency_chicago)
