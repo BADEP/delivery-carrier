@@ -48,7 +48,7 @@ class TestDeliveryCarrierManualPrice(TransactionCase):
     def test_delivery_carrier_manual_price(self):
         delivery_wizard = Form(
             self.env["choose.delivery.carrier"].with_context(
-                **{"default_order_id": self.sale.id, "default_carrier_id": self.carrier}
+                default_order_id=self.sale.id, default_carrier_id=self.carrier
             )
         )
         choose_delivery_carrier = delivery_wizard.save()
