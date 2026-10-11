@@ -11,9 +11,9 @@ class DeliveryCarrierAgency(models.Model):
     name = fields.Char(required=True)
     external_reference = fields.Char(help="Reference or code supplied by the carrier")
     delivery_type = fields.Selection(
-        selection=lambda self: self.env["delivery.carrier"]
-        ._fields["delivery_type"]
-        .selection,
+        selection=lambda self: (
+            self.env["delivery.carrier"]._fields["delivery_type"].selection
+        ),
         required=True,
     )
     carrier_ids = fields.Many2many(
