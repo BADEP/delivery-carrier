@@ -118,10 +118,7 @@ class TestDeliveryMultiDestination(common.TransactionCase):
     def _choose_delivery_carrier(self, order, carrier):
         wizard = Form(
             self.env["choose.delivery.carrier"].with_context(
-                **{
-                    "default_order_id": order.id,
-                    "default_carrier_id": carrier.id,
-                }
+                default_order_id=order.id, default_carrier_id=carrier.id
             )
         )
         choose_delivery_carrier = wizard.save()
