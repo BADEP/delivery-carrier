@@ -60,9 +60,11 @@ class StockPicking(models.Model):
         # when we have a returned picking that isn't invoiced so we don't have
         # it as invoiceable line. Otherwise, the salesman has to do it by hand.
         sales_to_void_delivery = self.filtered(
-            lambda x: x.sale_id
-            and x.picking_type_code == "incoming"
-            and x.sale_id._is_delivery_line_voidable()
+            lambda x: (
+                x.sale_id
+                and x.picking_type_code == "incoming"
+                and x.sale_id._is_delivery_line_voidable()
+            )
         ).mapped("sale_id")
         sales_to_void_delivery.mapped("order_line").filtered(
             lambda x: x.is_delivery
