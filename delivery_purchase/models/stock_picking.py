@@ -10,8 +10,10 @@ class StockPicking(models.Model):
 
     def _send_confirmation_email(self):
         for pick in self.filtered(
-            lambda r: r.carrier_id.integration_level == "rate_and_ship"
-            and r.picking_type_code == "incoming"
+            lambda r: (
+                r.carrier_id.integration_level == "rate_and_ship"
+                and r.picking_type_code == "incoming"
+            )
         ):
             pick.purchase_send_to_shipper()
         return super()._send_confirmation_email()
