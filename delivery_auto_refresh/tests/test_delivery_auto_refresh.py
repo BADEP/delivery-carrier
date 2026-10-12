@@ -16,6 +16,8 @@ def _execute_onchanges(records, field_name):
 
 @tagged("post_install", "-at_install")
 class TestDeliveryAutoRefresh(BaseCommon):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
