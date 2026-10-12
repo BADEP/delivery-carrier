@@ -4,6 +4,8 @@ from odoo.addons.delivery.tests.common import DeliveryCommon
 
 
 class TestPickingOption(DeliveryCommon):
+    _test_user_groups = None
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
