@@ -68,6 +68,8 @@ class TestDeliveryPurchaseBase(BaseCommon):
 
 
 class TestDeliveryPurchase(TestDeliveryPurchaseBase):
+    _test_user_groups = None
+
     def test_onchange_partner_id(self):
         self.assertEqual(self.purchase.carrier_id, self.carrier_fixed)
 
